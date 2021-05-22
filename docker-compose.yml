@@ -37,8 +37,8 @@ services:
       dockerfile: Dockerfile.dev
       context: ./client
     volumes:
-      - /home/app/node_modules
-      - ./client:/home/app
+      - /home/node/app/node_modules
+      - ./client:/home/node/app
   woker:
     environment:
       - REDIS_HOST=redis
@@ -47,5 +47,5 @@ services:
       dockerfile: Dockerfile.dev
       context: ./worker
     volumes:
-      - /home/app/node_modules
-      - ./worker:/home/app
+      - /home/node/app/node_modules
+      - ./worker:/home/node/app

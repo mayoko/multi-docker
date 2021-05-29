@@ -1,0 +1,36 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "mayoko33/multi-client",
+      "hostname": "client",
+      "essentail": false
+    },
+    {
+      "name": "server",
+      "image": "mayoko33/multi-server",
+      "hostname": "api",
+      "essentail": false
+    },
+    {
+      "name": "worker",
+      "image": "mayoko33/multi-worker",
+      "hostname": "worker",
+      "essentail": false
+    },
+    {
+      "name": "nginx",
+      "image": "mayoko33/multi-nginx",
+      "hostname": "nginx",
+      "essentail": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    }
+  ]
+}
